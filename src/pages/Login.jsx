@@ -8,7 +8,7 @@ const Login = () => {
     <>
       <LoginButton />
       <p>
-        Don't have an account?{' '}
+        Don't have an account?
         <Link to="/register">Register free</Link>
       </p>
     </>

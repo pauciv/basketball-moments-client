@@ -37,7 +37,6 @@ const Header = () => {
             <Button
               to="/upload"
               as={NavLink}
-              variant="success"
               className="d-flex align-items-center me-3"
               style={{ fontSize: '18px', height: '54px' }}
             >
