@@ -1,28 +1,35 @@
+import { useQuery } from '@tanstack/react-query';
+import { Col, Row } from 'react-bootstrap';
+import { fetchGetAll } from '../api';
 import MomentCard from '../components/MomentCard';
+import categories from '../utils/categories';
 
-const Home = () => {
-  const fetchKey = async (key) => {
-    try {
-      const res = await fetch(`http://localhost:4000/api/v1/${key}`);
-      const data = await res.json();
-      console.log(data)
-      return data;
-    } catch (err) {
-      console.log(`Fail fetching ${key}`);
-    }
+const Home = ({ categoryFilter }) => {
+  const { data: moments, status: momentsStatus } = useQuery(
+    ['moments', 'moments'],
+    async () => fetchGetAll('moments')
+  );
+
+  const filteredMoments = () => {
+    categories.map((category) => {
+      if (categoryFilter === category) {
+        const mo = moments.filter((m) => m.category === categoryFilter);
+        console.log('moments', mo);
+        return mo;
+      }
+    });
   };
 
-  fetchKey('moments')
-
   return (
-    <MomentCard />
-    // <Row md={2} xs={1} lg={3} className="g-3">
-    //   {storeItems.map((item) => (
-    //     <Col key={item.id}>
-    //       <StoreItem {...item} />
-    //     </Col>
-    //   ))}
-    // </Row>
+    !categoryFilter && (
+      <Row md={3} xs={1} lg={5} className="g-3">
+        {moments?.map((moment) => (
+          <Col key={moment._id}>
+            <MomentCard {...moment} />
+          </Col>
+        ))}
+      </Row>
+    )
   );
 };
 

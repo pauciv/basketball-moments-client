@@ -4,18 +4,18 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Upload from './pages/Upload';
 import Moment from './pages/Moment';
-import Login from './pages/Login';
 import PrivateRoutes from './routes/PrivateRoutes';
+import { useState } from 'react';
 
 function App() {
+  const [categoryFilter, setCategoryFilter] = useState();
+  
   return (
     <>
-      <Header />
+      <Header setCategoryFilter={setCategoryFilter} />
       <Container>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          {/* <Route path="/register" element={<Register />} /> */}
+          <Route path="/" element={<Home categoryFilter={categoryFilter} />} />
           <Route path="/moment/:id" element={<Moment />} />
           <Route
             path="/upload"

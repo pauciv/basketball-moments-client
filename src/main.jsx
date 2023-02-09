@@ -4,20 +4,23 @@ import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from 'react-router-dom';
 import { Auth0Provider } from '@auth0/auth0-react';
+import QueryProvider from './utils/QueryProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Auth0Provider
-      domain="pauciva.eu.auth0.com"/* {import.meta.env.REACT_APP_AUTH0_DOMAIN} */
-      clientId="l9nttm0dnoICOXMBixmGUAdfIPoa8COl"/* {import.meta.env.REACT_APP_AUTH0_CLIENT_ID} */
+      domain="pauciva.eu.auth0.com" /* {import.meta.env.REACT_APP_AUTH0_DOMAIN} */
+      clientId="l9nttm0dnoICOXMBixmGUAdfIPoa8COl" /* {import.meta.env.REACT_APP_AUTH0_CLIENT_ID} */
       authorizationParams={{
-        redirect_uri: window.location.origin
+        redirect_uri: window.location.origin,
       }}
-      audience="http://localhost:4000"/* {import.meta.env.REACT_APP_AUTH0_AUDIENCE} */
+      audience="http://localhost:4000" /* {import.meta.env.REACT_APP_AUTH0_AUDIENCE} */
     >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <QueryProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </QueryProvider>
     </Auth0Provider>
   </React.StrictMode>
 );
