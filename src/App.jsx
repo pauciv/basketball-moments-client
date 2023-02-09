@@ -12,7 +12,7 @@ function App() {
   
   return (
     <>
-      <Header setCategoryFilter={setCategoryFilter} />
+      <Header categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />
       <Container>
         <Routes>
           <Route path="/" element={<Home categoryFilter={categoryFilter} />} />

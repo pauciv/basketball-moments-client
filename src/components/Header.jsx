@@ -21,7 +21,7 @@ const Header = ({ setCategoryFilter }) => {
     <Navbar sticky="top" className="bg-white shadow-sm p-3 mb-3">
       <Container className="d-flex justify-content-between">
         <Navbar.Brand to="/" as={NavLink} onClick={() => setCategoryFilter()}>
-          Basketball Moments
+          <img src="basketball-moments-logo.png" style={{ width: "200px" }} />
         </Navbar.Brand>
 
         <Nav className="me-auto">
