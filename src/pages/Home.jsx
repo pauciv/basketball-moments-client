@@ -12,7 +12,6 @@ const Home = ({ categoryFilter }) => {
   const filteredMoments = moments?.filter(
     (moment) => moment.category === categoryFilter
   );
-  console.log("filteredMoments", filteredMoments)
 
   return !categoryFilter ? (
     <Row md={3} xs={1} lg={5} className="g-3 mb-5">

@@ -35,8 +35,6 @@ const User = () => {
     return <div>Loading...</div>;
   }
 
-  // if no encuentra el email en la DB, haz el create
-
   return (
     isAuthenticated && (
       <div className="d-flex align-items-center">
