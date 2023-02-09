@@ -15,7 +15,7 @@ const Home = ({ categoryFilter }) => {
   console.log("filteredMoments", filteredMoments)
 
   return !categoryFilter ? (
-    <Row md={3} xs={1} lg={5} className="g-3">
+    <Row md={3} xs={1} lg={5} className="g-3 mb-5">
       {moments?.map((moment) => (
         <Col key={moment._id}>
           <MomentCard {...moment} />
@@ -23,7 +23,7 @@ const Home = ({ categoryFilter }) => {
       ))}
     </Row>
   ) : (
-    <Row md={3} xs={1} lg={5} className="g-3">
+    <Row md={3} xs={1} lg={5} className="g-3 mb-5">
       {filteredMoments?.map((moment) => (
         <Col key={moment._id}>
           <MomentCard {...moment} />
